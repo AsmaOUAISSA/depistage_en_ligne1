@@ -4,7 +4,7 @@ let path = require("path");
 let mysql = require("mysql");
 //const fetch  = require("node-fetch");
 const dotenv = require("dotenv");
-const imp_connection = require("./public/connectiondb");
+const imp_connection = require("./database/connectiondb");
 const connection = mysql.createConnection(imp_connection.connection);
 
 dotenv.config({
