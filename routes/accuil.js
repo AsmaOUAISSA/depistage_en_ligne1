@@ -24,7 +24,7 @@ router.get('/login', (req, res)=>{
       res.status(404).send('la page d\'inscription n\'est pas trouver');
   }
   });
-//afficher la page de login
+//afficher la page de profile
 router.get('/profile', (req, res)=>{
   try{
     res.render("profile");
