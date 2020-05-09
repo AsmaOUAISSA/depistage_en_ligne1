@@ -3,14 +3,29 @@ let app = express();
 let path = require("path");
 let mysql = require("mysql");
 //const fetch  = require("node-fetch");
+//let session = require("express-session");
 const dotenv = require("dotenv");
 const imp_connection = require("./database/connectiondb");
 const connection = mysql.createConnection(imp_connection.connection);
+var cookieParser = require('cookie-parser');
 
-dotenv.config({
-  path: "./.env",
-})
 
+
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+//debut cookie
+app.use(cookieParser());
+/*app.use(cookieSession({
+   secret: 'secret',
+   resave: false,
+   saveUninitialized: true,
+   //start cookie
+   cookie: cookieSess,
+ }));
+*/
+ 
+
+ 
 
 //tester la connection a la base de donnees
 connection.connect ((error) => { 
@@ -22,24 +37,10 @@ connection.connect ((error) => {
 });
 
 // view engine setup
+app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
-app.use(express.static(path.join(__dirname, '/public')));
-app.engine('html', require('ejs').renderFile);
-
-
-//afficher le homepage
-app.get("/", (req, res) =>{
-try{
-   res.sendFile(path.join(__dirname, "public", "Accuil.html"));
-}catch{
-   res.status(404);
-}
-});
-
-/*app.use(express.static(path.join(__dirname, "public")));
-;*/
-app.use(express.json());
-
+//afficher les fichier static ex: css,images
+app.use(express.static(path.join(__dirname, 'public')));
 
 /*app.get('/',async (req, res) => {
    console.log('hello!!!!!!!!!!!!');
@@ -54,15 +55,19 @@ app.use(express.json());
   }
 })*/
 
-let users = require('./routes/route');
-app.use('/route', users);
 
 
 
 
+//utiliser les route
+app.use('/',require('./routes/accuil'));
+app.use('/inscri', require('./routes/inscri'));
 
-
-
+//connecter ou fichier .env
+dotenv.config({
+   path: "./.env",
+ })
+//connecter ou port 
 const port = process.env.PORT || 3000;
 app.listen(port, () =>{
    console.log("listening at port "+ port);
