@@ -58,8 +58,8 @@
 
   <div class="col-sm-6 col-sm-offset-3">
    <h2>Login</h2>
-   {{#if message}}
-    <div class="alert alert-danger mt-4">{{message}}</div> 
+   {{#if message_erreur}}
+    <div class="alert alert-danger mt-4">{{message_erreur}}</div> 
   {{/if}}
    <form action="/inscri/login" method="post">
     

@@ -3,6 +3,8 @@ const imp_connection = require("../database/connectiondb");
 const connection = mysql.createConnection(imp_connection.connection);
 const jsonwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const multer = require("multer");
+const path = require("path");
 exports.register = (req, res) => {
     console.log(req.body);
 
@@ -10,8 +12,10 @@ exports.register = (req, res) => {
 // selectionner depuis users email où ce email là egale a email taper 
     connection.query(" SELECT email FROM users WHERE email = ? ", [email], async (error, result) =>{
         
-        if(error){
-            return error; 
+        if(!nom || !prenom || !email || !pass || !passconf){
+            return res.render('register', {
+                message_erreur: 'vous n\'avez pas tapez un champ'
+               });
         }
         //si un email a ete slectionner 
        if(result.length > 0){
@@ -78,9 +82,10 @@ exports.login = async  (req, res) => {
              //définir le jeton comme un cookie et donner le un nom cookie
              res.cookie('cookie', token, cookie);
              //returner a la page d'accuil
-             res.status(200).render('profile', {
+              const rouf =  res.status(200).render('profile', {
                 nom : result[0].nom,
                 prenom : result[0].prenom,
+                id: result[0].id,
             }) 
          }
      });
@@ -88,6 +93,23 @@ exports.login = async  (req, res) => {
         console.log(error);
     }
 }
+
+ const storage = multer.diskStorage({
+     //stocker l'image en images
+    destination:'./public/images/',
+    filename: (req, file, callback)=>{
+       callback(null, file.fieldname + '-' + Date.now()
+        + path.extname(file.originalname));
+    }
+ }) 
+ 
+ //telecharger l'image
+ exports.telech = multer({
+    storage: storage,
+    limits:{fileSize: 1000000},
+ 
+ }).single('pro_image');
+
 /*exports.profile = (req, res) =>{
    const nom = this.login.nom;
    console.log(nom);

@@ -4,7 +4,7 @@ module.exports = {
       'host':'localhost',
       'user':'root',
        'password': '',
-       'database':'ste',
+       'database':'dbuser',
      },
      
      'user_table':'users'

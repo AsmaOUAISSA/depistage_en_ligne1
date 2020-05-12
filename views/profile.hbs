@@ -1,2 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bienvune pour le d&eacute;pstage en ligne de covid_19</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--folder css-->
+  <link rel="stylesheet" type="text/css" href="../css/style_Accuil.css">
+<!--les font family--->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap" rel="stylesheet">
+<!-----bootstrap--------------->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-     <h3><span class="fa fa-user"></span> Welcome {{ nom }} {{prenom}}/h3>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  
+  
+</head>
+<body>
+<!--nav bar de la page-->
+<section>
+<nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
+  <div class="LOGO">
+   	<h5>COVID-19 MAROC</h5>
+   </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="#">Accuil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">D&eacute;pistage en ligne</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Information</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" >Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</section>
+ <br><br>
+
+<div class="card text-white bg-primary mb-3" style="max-width: 25rem; color:bisque">
+  <div class="card-header"><h3><span class="fa fa-user"></span> Welcome {{ nom }} {{prenom}}</h3></div>
+        {{#if file}}
+          <img src="{{file}}" class="responsive-img" style="width: 200px; heigth:200;">
+        {{/if}}
+      <div class="card-body">
+         <form action="/inscri/profile1" method="POST" enctype="multipart/form-data"> 
+            <div class="form-row">
+              <div class="col-7">
+                <input name="pro_image" type="file" class="form-control" placeholder="City">
+              </div>
+            <button type="submit">Ajouter</button>
+          </div>
+          
+          </form>
+
+      </div>
+  </div>
+</div>
+
+    <!--div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div-->
+
+</body>
+</html>
