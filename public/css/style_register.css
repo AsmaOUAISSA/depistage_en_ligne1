@@ -1,0 +1,83 @@
+
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-img-left {
+  width: 40%;
+  background: scroll center url('../images/corona1.jpg');
+  background-size: cover;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-signin .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  border-color:none;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  transition: all 0.2s;
+  background: -webkit-linear-gradient(to left, #EA2027, #009432);
+  background: linear-gradient(to left, #009432,  #EA2027);
+  border-color: beige;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+
+.form-label-group>label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 80%;
+  margin-bottom: 0;
+  line-height: 1;
+  color: #495057;
+  border: 1px solid transparent;
+  border-radius: .20rem;
+  transition: all .1s ease-in-out;
+}
+
+
+ a{
+color: black;
+font-size: 20px;
+font-style: italic;
+}
+a:hover{
+    text-decoration: none;
+    color: darkgreen;
+}
+
+

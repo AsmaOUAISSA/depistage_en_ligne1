@@ -6,22 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--folder css-->
   <link rel="stylesheet" type="text/css" href="../css/style_Accuil.css">
+  <link rel="stylesheet" type="text/css" href="../css/style_profile.css">
 <!--les font family--->
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <!---------icon--------->
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 <!-----bootstrap--------------->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  
+  
+   
   
   
 </head>
@@ -55,25 +55,6 @@
 </section>
  <br><br>
 
-<div class="card text-white bg-primary mb-3" style="max-width: 25rem; color:bisque">
-  <div class="card-header"><h3><span class="fa fa-user"></span> Welcome {{ nom }} {{prenom}}</h3></div>
-        {{#if file}}
-          <img src="{{file}}" class="responsive-img" style="width: 200px; heigth:200;">
-        {{/if}}
-      <div class="card-body">
-         <form action="/inscri/profile1" method="POST" enctype="multipart/form-data"> 
-            <div class="form-row">
-              <div class="col-7">
-                <input name="pro_image" type="file" class="form-control" placeholder="City">
-              </div>
-            <button type="submit">Ajouter</button>
-          </div>
-          
-          </form>
-
-      </div>
-  </div>
-</div>
 
     <!--div class="card text-center">
   <div class="card-header">
@@ -84,6 +65,51 @@
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="well">
+        <div class="card" style="width:370px;">
+            <img src="../images/image.jpg" class="card-img-top" alt="Card image">
+            <div class="card-body">
+              <h3>
+               <span class="fa fa-user"></span>Bienvune {{ nom }} {{prenom}}
+              </h3>
+            </div>
+          </div>
+        </div>
+     </div>
+     <div class="col-md-8">
+       <div class="well">
+             <div class="card">
+  <h5 id="header_card" class="card-header h5" >D&eacute;pistage en ligne COVID-19 MAROC</h5>
+  <div class="card-body">
+    <h5 class="card-title"> NB:</h5>
+    <p class="card-text">
+      Ce test est uniquement destin&eacute; &agrave; informer et &agrave; contribuer ainsi &agrave; fluidifier les services d'urgence pendant 
+      l'&eacute;pid&eacute;mie de Coronavirus Covid-19.
+      <br><br>
+      Il vous suffit de r&eacute;pondre &agrave; 13 questions-r&eacute;ponses sur votre &eacute;tat de sant&eacute; : votre temp&eacute;rature corporelle,
+      la pr&eacute;sence de fi&egrave;vre ou de toux, une &eacute;ventuelle perte du goût ou de
+      l'odorat, une fatigue inhabituelle, un manque de souffle, une difficult&eacute; &agrave; s'alimenter, une maladie grave, etc.
+      <br><br>
+      <span class="re_span">Remarque:</span> Vous pouvez refaire le test si les sympt&ocirc;mes &eacute;voluent puis rechercher un avis m&eacute;dical.
+    </p>
+    <a href="/test" id="btn_test" class="btn" >Faire le questionnaire</a>
+  </div>
+</div>
+       </div>
+     </div>
+  </div>
+</div>
 
 </body>
 </html>
+     <!--form action="/inscri/profile" method="POST" enctype="multipart/form-data"> 
+            <div class="form-row">
+              <div class="col-7">
+                <input name="pro_image" type="file" class="form-control" placeholder="City">
+              </div>
+            <button type="submit">Ajouter</button>
+          </div>
+          </form-->

@@ -1,0 +1,157 @@
+#header_card{
+  background: -webkit-linear-gradient(to left, #f8a711, #e67e22);
+  background: linear-gradient(to left, #e67e22,  #f8a711);
+  font-family: 'Dancing Script', cursive;
+  color: snow;
+  }
+  h2{
+    text-align: center;
+  }
+  p{
+      font-size: 15px;
+      font-family: sans-serif;
+      
+  }
+  .re_span{
+      font-size: 18px;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-style: italic;
+      color: #e67e22;
+  }
+  .card-title{
+    font-style: italic;
+    color: #e67e22;
+  }
+  #btn_test{
+    background-color: #e67e22;
+    color: white;
+    margin-left: 80%;
+    font-size: small;
+    font-weight: bold;
+
+  }
+.select_option{
+  width: 15px;
+  height: 10px;
+}
+.titre_span{
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: 1%;
+}
+/*************check box*************/
+.btn span.glyphicon {    			
+    opacity: 0;				
+}
+.btn.active span.glyphicon {				
+    opacity: 1;				
+}
+#span_check{
+  color: white;
+  font-weight: bold;
+}
+#suivant{
+  margin-top: 20%;
+  background-color: #e67e22;
+  color: white;
+  margin-left: 80%;
+  font-size: small;
+  font-weight: bold;
+  height: 20%;
+  width: 10%;
+  margin-left: 100%;
+}
+
+/***********************/
+button a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  height: 20%;
+  color: white;
+}
+
+button a:hover {
+  background-color: rgb(236, 187, 52);
+  color: white;
+  text-decoration: none;
+}
+
+.previous {
+  background-color: #e67e22;
+  color: white;
+  height: 20%;
+  /*margin-right: 69%;*/
+  margin-left: 2%;
+  border-radius: 5%;
+  /*margin-bottom: 1%;*/
+  width: 13%;
+  text-align: center;
+  font-weight: bold;
+
+}
+button{
+  background-color: #e67e22;
+  color: white;
+  height: 20%;
+ /* margin-left: 80%;*/
+  border-radius: 5%;
+  
+  width: 13%;
+  text-align: center;
+  font-weight: bold;
+}
+
+button:hover{
+  background-color: rgb(236, 187, 52);
+  
+  text-decoration: none;
+}
+.next {
+  background-color: #e67e22;
+  color: white;
+  height: 20%;
+  margin-left: 80%;
+  border-radius: 5%;
+  margin-bottom: 1%;
+  width: 13%;
+  text-align: center;
+  font-weight: bold;
+}
+/*.suivant{
+  background-color: #e67e22;
+  color: white;
+  height: 20%;
+  margin-right: 2%;
+  border-radius: 5%;
+  margin-bottom: 1%;
+  width: 13%;
+  text-align: center;
+  font-weight: bold;
+}*/
+
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid #fff;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+}
+
+input:checked {
+  border: 6px solid#d35400;
+}
+
+
+

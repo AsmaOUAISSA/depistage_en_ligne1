@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bienvune pour le d&eacute;pstage en ligne de covid_19</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--folder css-->
+    <link rel="stylesheet" type="text/css" href="../css/style_Accuil.css">
+  <link rel="stylesheet" type="text/css" href="../css/style_profile.css">
+<!--les font family--->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <!---------icon--------->
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+<!-----bootstrap--------------->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  
+   
+  
+  
+</head>
+<body>
+<!--nav bar de la page-->
+<section>
+<nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
+  <div class="LOGO">
+   	<h5>COVID-19 MAROC</h5>
+   </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="#">Accuil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">D&eacute;pistage en ligne</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Information</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" >Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</section>
+
+<div id="b" class="page">
+<br><br>
+<form  id="app"  >
+<div id="app-2">
+       <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 960px; margin-left:15%; text-align:center;" v-if="messageErreur">
+                            vous ne pouvez pas faire ce test votre age et moin de 15 ans
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+             </button>
+        </div>
+<div class="container" >
+    <div class="row">
+     <div class="col-md-12">
+
+       <div class="well">
+         <div class="card" >
+             <h5 id="header_card" class="card-header h5" >D&eacute;pistage en ligne COVID-19 MAROC</h5>
+             <div class="card-body" v-if="step ==1">
+               <h2>Avez-vous quelle age ? </h2>
+                <br>
+                  <div class="col-sm-4" > 
+                            <label  class="btn btn-warning" style="padding: 15px 25px;" >
+                               <div class="skin.skin-square">
+                                  <input type="radio" name="option" value="opt1"   v-model="picked">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">Moins de 15 ans</span>
+                      </div>      
+			          </label>
+                      <br>
+                                  
+			         <label  class="btn btn-warning" style="padding: 15px 19px;" >
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" value="opt2"   v-model="picked">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">entre 15 et 30 ans</span>
+                        </div>
+			        </label>
+                   <br>
+                                  
+			        <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" value="opt3"   v-model="picked">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">entre 30 et 50 ans</span>
+                        </div>
+			        </label>   
+                     <br>
+                                  
+			        <label  class="btn btn-warning" style="padding: 15px 19px;" value="opt4"   v-model="picked">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" >
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">entre 50 et 80 ans</span>
+                        </div>
+			        </label> 
+                  </div>
+
+              </div>
+                   
+           
+        
+
+            
+             <div class="card-body" v-if="step ==2">
+               <h2>Ces derni&egrave;res 48 heures, quelle a &eacute;t&eacute; votre temp&eacute;rature la plus &eacute;lev&eacute;? </h1>
+                
+              
+                  <select id="select_option" class="mdb-select md-form " editable="true" name="text" style="margin-left:15%; margin-top:2%; padding:10px 30px;"v-model="selected">
+                      <option value="" >37</option>
+                      <option value="1">37,5</option>
+                      <option value="2">38</option>
+                      <option value="3">39</option>
+                      <option value="4">40</option>
+                      <option value="5">41</option>
+                      <option value="5">42</option>
+                      <option value="5">43</option>
+                      <option value="5">44</option>
+                      <option value="5">45</option>
+                      <option value="5">46</option>
+                      <option value="5">47</option> 
+                  </select>
+                 
+                  
+                  <span class="titre_span">Degré</span>
+                   </div>
+                  <br>
+          
+
+
+
+             <div class="card-body" v-if="step ==3">
+               <h2>Etes vous dans l’impossibilit&eacute; de vous alimenter ou boire depuis 24 heures ou plus ? </h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="ouise"  v-model="pickedse">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="pickedse">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+ 
+             </div>
+
+
+ 
+
+
+             <div class="card-body" v-if="step ==4">
+               <h2>Avez-vous noté un manque de souffle inhabituel lorsque vous parlez ou faite un petit effort ? </h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="ouithe"  v-model="pickedthe">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="pickedthe">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+             </div>
+
+
+              <div class="card-body" v-if="step ==5">
+               <h2>Avez-vous une fièvre potentielle ou une diarrhée ? </h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="oui"  v-model="pickedfor">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="pickedfor">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+             </div>
+              <div class="card-body" v-if="step ==6">
+               <h2>Avez-vous une disparition de goût et l’odorat ? </h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="oui"  v-model="picked6">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="picked6">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+             </div>
+
+
+               <div class="card-body" v-if="step ==7">
+               <h2>Avez-vous des douleurs musculaires ou une fatigue ?</h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="oui"  v-model="picked7">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="picked7">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+             </div>
+                 <div class="card-body" v-if="step ==8">
+               <h2>Avez-vous un mal de gorge ? </h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="oui"  v-model="picked8">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="picked8">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+             </div>
+             <div class="card-body" v-if="step ==9">
+               <h2>Ces derniers jours, avez-vous une toux sèche ou une augmentation de votre toux habituelle ?</h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="oui"  v-model="picked9">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="picked9">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+             </div>
+
+              <div class="card-body" v-if="step ==10">
+               <h2>Avez-vous des problèmes de santé tel qu’hypertension artérielle, problèmes cardiaques ou diabète ?</h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="oui"  v-model="picked10">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="picked10">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+             </div>
+               <div class="card-body" v-if="step ==11">
+               <h2>Avez-vous voyagé lors de 15 ou 14 dernières jours ? </h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="oui"  v-model="picked11">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="picked11">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+             </div>
+
+
+             <div class="card-body" v-if="step == 12">
+               <h2>Avez-vous été un contact étroit avec un cas confirmé ? </h2>
+                <br>
+
+                  <div class="col-sm-4">
+                      <label class="btn btn-warning" style="padding: 15px 23px;">
+                      <div class="skin.skin-square" >
+				                 <input type="radio" name="option" id="oui"  value="oui"  v-model="picked12">
+				                 <span class="glyphicon glyphicon-ok"></span>
+                         <span id="span_check">OUI</span>
+                      </div>      
+			                </label>
+                      <br>
+                                  
+			                <label  class="btn btn-warning" style="padding: 15px 19px;">
+                        <div class="skin.skin-square">
+				                  <input type="radio" name="option" id="non" value="non"  v-model="picked12">
+				                  <span  class="glyphicon glyphicon-ok"></span>
+                          <span id="span_check">NON</span>
+                        </div>
+			                </label>    
+                  </div>
+                  <br>
+             </div>
+
+ 
+              
+
+
+               <div class="card-body" v-if="step ==13">
+                  <h5 class="card-title"> Resulta:</h5>
+                  <p id="text_result" class="card-text">
+                                       
+                         <div class="alert alert-danger alert-dismissible fade show" role="alert"  v-if="message">
+                          votre situation peut relève de COVID-19, Allez à l’hôpital le plus proche, tassez-vous de maintenir distance social
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                            </button>
+                         </div>
+                          <div class="alert alert-success alert-dismissible fade show" role="alert"  v-if="messageEcho">
+                            votre cas ne relève probablement pas de COVID-19, ou cas de doute appelez  ALLO YAKADA  080-100-47-47
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                           </button>
+                          </div>
+
+                          
+                    <span class="attention_span">Attention :</span> 
+                     La recommandation qui s'affiche à la fin du test peut évoluer suivant les informations 
+                     en provenance des autorités de santé et des chercheurs. Elle ne constitue pas un avis 
+                     médical. En cas de doute, demandez conseil à votre médecin ou pharmacien.
+                     Pour ces mêmes raisons, les autorités précisent que l'exhaustivité, l'exactitude, 
+                     le caractère à jour des informations mises à disposition dans cette application, ou 
+                     leur adéquation à des finalités particulières, ne sont pas garantis.
+                   <br><br>
+                 </p>
+                  <a href="/logout" id="btn_test" class="btn"  >Logout</a>
+                </div>
+
+
+
+
+
+
+                    <!--button v-if="step !== 1"  @click.prevent="precStep" style="">pre</button> 
+                    <button v-if="step != totalsteps"  @click.prevent="nextStep"  >Next</button--> 
+                    
+                      <button v-if="step !== 1"  @click.prevent="precStep" class="previous"><a>&laquo; Précédent</a></button>
+                    <button   v-if="step != totalsteps"  @click.prevent="nextStep" name="check"  class="next" ><a >Suivant &raquo;</a></button> 
+                    
+    </div>
+  </div>
+</div> 
+</div>
+
+</form>
+</div>
+
+<script>
+
+const app = new Vue({
+    el: "#app", 
+    data:{
+        step :1, 
+        totalsteps: 13,
+        picked: " ",
+        pickedse: " ",
+        pickedthe:"",
+        pickedfor:"",
+        picked6:"",
+        picked7:"",
+        picked8:"",
+        picked9:"",
+        picked10:"",
+        picked11:"",
+        picked12:"",
+        selected: 0,
+        message: false,
+        messageErreur: false,
+        messageEcho: false
+
+    
+    },
+    methods:{
+        nextStep: function(){
+                let count =0;
+               if( this.picked== 'opt2' || this.picked == 'opt3' || this.picked== 'opt4'){
+                 this.step++;
+                    count++;
+                    console.log(count);
+                     if(this.selected >=1){
+                         count++;    
+                         console.log(count);
+                }    
+                if(this.pickedse == 'ouise'){
+                         count++;
+                         console.log(count);
+                        
+                }               
+                 if(this.pickedthe == 'ouithe'){
+                   count++;
+                  console.log(count);
+                 
+                }      
+                  if(this.pickedfor == 'oui'){
+                   count++;
+                   console.log(count);
+                }     
+                   if(this.picked6 == 'oui'){
+                   count++;
+                   console.log(count);
+                }  
+                    if(this.picked7 == 'oui'){
+                       count++;
+                   console.log(count);
+                   
+                }  
+                    if(this.picked8 == 'oui'){
+                      count++;
+                   console.log(count); 
+                }                  
+                   if(this.picked9 == 'oui'){
+                   count++;
+                   console.log(count);
+                } 
+                   if(this.picked10 == 'oui'){
+                   count++;
+                   console.log(count);
+                }
+                   if(this.picked11 == 'oui'){
+                   count= count+2;
+                   console.log(count);
+                }
+                   if(this.picked12 == 'oui'){
+                   count=count+3
+                   console.log(count);
+                } 
+
+
+               }else{
+                   this.messageErreur = true;
+                  return false;
+               } 
+
+
+              //********le resultat
+              if(count>= 8){
+                this.message = true;
+                this.messageEcho = false;
+              }else{
+                 this.messageEcho =true;
+              }
+        },
+        precStep: function(){
+            this.step--;
+        }
+    },
+
+
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
